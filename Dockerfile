@@ -40,6 +40,11 @@ RUN mkdir -p /opt/huproxy/original/bin/ && \
 RUN cat /tmp/resource/conf/jupyter_notebook_config.py >> $CONDA_DIR/etc/jupyter/jupyter_notebook_config.py
 # RUN chown $NB_USER /tmp/resource/*.ipynb
 
+RUN mkdir -p /opt/huproxy/sshd/etc && \
+    cp /tmp/resource/conf/sshd/sshd_config /opt/huproxy/sshd/etc/ && \
+    ssh-keygen -t rsa -f /opt/huproxy/sshd/etc/ssh_host_rsa_key -N '' && \
+    chmod 777 -R /opt/huproxy/sshd/etc/
+
 COPY --from=0 /app/ /opt/huproxy/bin/
 
 USER $NB_USER
