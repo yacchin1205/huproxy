@@ -2,9 +2,8 @@ FROM golang:latest
 WORKDIR /go/src/github.com/google/huproxy
 COPY . .
 RUN mkdir /app
-RUN go get -d -v .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -o /app .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -o /app ./huproxyclient
+RUN CGO_ENABLED=0 GOOS=linux go build -a -o /app ./cmd/huproxy
+RUN CGO_ENABLED=0 GOOS=linux go build -a -o /app ./cmd/huproxyclient
 
 FROM alpine:latest
 WORKDIR /
