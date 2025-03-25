@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -xe
+
+/opt/huproxy/bin/run-hook.sh
+
+/opt/huproxy/original/bin/jupyter-notebook $@
