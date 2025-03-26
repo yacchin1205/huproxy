@@ -1,4 +1,4 @@
-Port 22
+Port 2222
 HostKey /opt/huproxy/sshd/etc/ssh_host_rsa_key
 UsePrivilegeSeparation no
 PidFile /tmp/sshd.pid

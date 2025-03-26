@@ -49,9 +49,5 @@ COPY --from=0 /app/ /opt/huproxy/bin/
 
 USER $NB_USER
 
-# # Replace contents
-# RUN rm /home/$NB_USER/*.ipynb /home/$NB_USER/*.md && \
-#     rm -fr /home/$NB_USER/images /home/$NB_USER/resources && \
-#     cp /tmp/resource/*.md /home/$NB_USER/ && \
-#     cp /tmp/resource/*.ipynb /home/$NB_USER/ && \
-#     cp -fr /tmp/resource/images /home/$NB_USER/
+# Replace contents
+RUN cp /tmp/resource/*.ipynb /home/$NB_USER/
